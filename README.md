@@ -1,2 +1,3 @@
 # Binance.Trade.Algos
-Different trading algos
+Different trading strategies visualized
+
