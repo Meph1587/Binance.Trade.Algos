@@ -136,7 +136,8 @@ class sMACD:
                         BuyPrice=CurrPrice
                         state = 1
                         #execute buy
-                        ETH = Capital/float(CurrPrice) #- (float(Capital));
+                        ETH = Capital/float(CurrPrice) 
+                        ETH = ETH*0.999 #trading fee of 0.1% = 1/1000
                         Capital = 0;
                         #print "::::::::::::::::::::::::::::::::::::BUY" + str( CurrPrice )
                         
@@ -150,7 +151,8 @@ class sMACD:
                         #set state back to for next buy
                         state=0;
                         #execute sell
-                        Capital=float(CurrPrice)*ETH# - (float(ETH));
+                        Capital=float(CurrPrice)*ETH
+                        Capital = Capital*0.999 #trading fee of 0.1%
 
                         #print "::::::::::::::::::::::::::::::::::::SELL " + str(CurrPrice)
                         #check if new best/worst trade

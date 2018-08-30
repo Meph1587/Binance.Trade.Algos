@@ -163,6 +163,7 @@ class MACD_Plott:
                         state = 1
                         #execute buy
                         ETH = Capital/float(CurrPrice)
+                        ETH = ETH*0.999
                         Capital = 0;
                         print "::::::::::::::::::::::::::::::::::::BUY "+str(CurrPrice)
                         
@@ -178,7 +179,7 @@ class MACD_Plott:
                         state=0;
                         #execute sell
                         Capital=float(CurrPrice)*ETH 
-
+                        Capital = Capital*0.999 #trading fee of 0.1 % = 1/1000
                         
                         print "::::::::::::::::::::::::::::::::::::SELL "+str(CurrPrice)
                         #check if new best/worst trade
