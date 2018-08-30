@@ -20,7 +20,7 @@ def main(argv):
     strategy = sMACD()
 
     #get data from binnace
-    data= client.get_historical_klines(symbol='BTCUSDT', interval= '1h', start_str= '2017.06.16', end_str= '2018.08.27')
+    data= client.get_historical_klines(symbol='BTCUSDT', interval= '1h', start_str= '2017.08.17', end_str= '2018.08.27')
     #format
     data_df= pd.DataFrame(data, columns=['Open time', 'Open', 'High', 'Low', 'Close', 'Volume', 'Close time', 'Quote asset volume', 'Number of trades', 'Taker buy base asset volume', 'Taker buy quote asset volume', 'Ignore'])
     #init variables
