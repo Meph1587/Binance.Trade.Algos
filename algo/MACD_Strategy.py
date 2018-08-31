@@ -15,7 +15,7 @@ class sMACD:
         state = 0; #0 ready to buy, 1 ready to sell
 
         #money at start
-        Capital = 10000.0;
+        Capital = 1000.0;
 
         #eth at start
         ETH = 0.0;
