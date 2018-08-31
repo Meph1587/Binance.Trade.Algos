@@ -48,7 +48,7 @@ class sMACD:
         tradesBad=[];
 
         #used to terminate when finished
-        for CurrPrice in data_df["Close"]:
+        for CurrPrice in data_df["Open"]:
 
             CurrPrice=float(CurrPrice)
 
