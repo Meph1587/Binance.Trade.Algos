@@ -179,22 +179,6 @@ class sMACD:
 
         #return performance 
         return float(CurrPrice)*ETH;
-'''
-                print "ends with: ", CurrPrice*ETH;
-                print "Buy-and-Hold strategy ends with: ",CurrPrice*(10000.0/FirstPrice),"/10'000";
-                print "Profit :", (((CurrPrice*ETH)/10000.0)*100)-100, "%"
-                print "Compared against buy-and-hold :", ((CurrPrice*ETH)/(CurrPrice*(10000.0/FirstPrice)))*100, "%"
-                print "best trade :", highestGain
-                print "worst trade :", highestLost
-                summ=0
-                for l in tradesGood:
-                    summ+=l
-                #print "Avarage good trade :", summ/len(tradesGood)
-                summ=0
-                for k in tradesBad:
-                    summ+=k
-                #print "Avarage bad trade :", summ/len(tradesBad)
-                runs=False;
-'''
+
                 
 
