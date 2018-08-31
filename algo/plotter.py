@@ -197,21 +197,23 @@ class MACD_Plott:
                 #set current MACD state to be Last in next round
         		MACDstateLast=MACDstate
 
-        return balances
-        '''    
-		print "ends with: " + str(CurrPrice*ETH)
-	    print "Buy-and-Hold strategy ends with: "+str(CurrPrice*(10000.0/FirstPrice))+"/10'000";
-	    print "Profit :"+str((((CurrPrice*ETH)/10000.0)*100)-100) + "%"
-	    print "Compared against buy-and-hold :"+ str(((CurrPrice*ETH)/(CurrPrice*(10000.0/FirstPrice)))*100)+ "%"
-	    print "best trade :"+str(highestGain)
-	    print "worst trade :" + str(highestLost)
-	    summ=0
-	    for l in tradesGood:
-	        summ+=l
-	    #print ("Avarage good trade :", summ/len(tradesGood))
-	    summ=0
-	    for k in tradesBad:
-	        summ+=k
-	    #print ("Avarage bad trade :", summ/len(tradesBad))
-	    runs=False;
-        '''
+          
+        print "ends with: " + str(CurrPrice*ETH)
+        print "Buy-and-Hold strategy ends with: "+str(CurrPrice*(10000.0/FirstPrice))+"/10'000";
+        print "Profit :"+str((((CurrPrice*ETH)/10000.0)*100)-100) + "%"
+        print "Compared against buy-and-hold :"+ str(((CurrPrice*ETH)/(CurrPrice*(10000.0/FirstPrice)))*100)+ "%"
+        print "best trade :"+str(highestGain)
+        print "worst trade :" + str(highestLost)
+    
+        summ=0
+        for l in tradesGood:
+            summ+=l
+        print "Avarage good trade :"+ str(summ/len(tradesGood))
+        print "Number of good trades :"+ str(len(tradesGood))
+        summ=0
+        for k in tradesBad:
+            summ+=k
+        print "Avarage bad trade :"+ str(summ/len(tradesBad))
+        print "Number of bad trades :"+ str(len(tradesBad))
+
+        return balances 
