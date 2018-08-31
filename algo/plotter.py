@@ -13,17 +13,19 @@ class plotter:
 
 
         strategy = MACD_Plott()
-        this = strategy.run(x,y,z,data_df)
+        this, that = strategy.run(x,y,z,data_df)
 
         #compute all trades
         data_df['Open time']= pd.to_datetime(data_df['Open time'], unit='ms')
         time= data_df['Open time']
 
         #plot everything
+        plt.plot(time,that,'b',label="Price BTC")
         plt.plot(time,this,'r',label="settings: "+str(x)+ ", "+str(y)+ ", "+str(z) )
         plt.legend()
         plt.grid(True)
         plt.show()
+
 #same as other but saves balance and prints trades
 class MACD_Plott:
     def run(self,VShort,VLong,VSignal,data_df):
@@ -37,7 +39,7 @@ class MACD_Plott:
         state = 0; #0 ready to buy, 1 ready to sell
 
         #money at start
-        Capital = 10000.0;
+        Capital = 1000.0;
 
         #eth at start
         ETH = 0.0;
@@ -70,13 +72,15 @@ class MACD_Plott:
         tradesBad=[];
 
         balances = pd.DataFrame(columns=['Capital'])
+        price = pd.DataFrame(columns=['Price'])
 
         #used to terminate when finished
-        for CurrPrice in data_df["Close"]:
+        for CurrPrice in data_df["Open"]:
 
             CurrPrice=float(CurrPrice)
 
             balances = balances.append({'Capital':max(Capital, ETH*CurrPrice)}, ignore_index=True)
+            price = price.append({'Price':CurrPrice}, ignore_index=True)
 
             #takes first price
             if FirstPrice==0 :
@@ -216,4 +220,5 @@ class MACD_Plott:
         print "Avarage bad trade :"+ str(summ/len(tradesBad))
         print "Number of bad trades :"+ str(len(tradesBad))
 
-        return balances 
+        return balances, price 
+
