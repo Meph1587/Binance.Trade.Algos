@@ -43,7 +43,7 @@ def doublingMethod(wall, quant):
       print " "
       x= closePrice[i]
       sellPhase= False
-      quantityBuy= quantity/2
+      quantityBuy= quant
       investment= 0
 
     ++i
@@ -57,6 +57,18 @@ def doublingMethod(wall, quant):
 
 #example
 doublingMethod(10000, 100)  
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
