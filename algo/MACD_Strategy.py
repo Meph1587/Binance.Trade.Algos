@@ -15,7 +15,7 @@ class sMACD:
         state = 0; #0 ready to buy, 1 ready to sell
 
         #money at start
-        Capital = 10000.0;
+        Capital = 1000.0;
 
         #eth at start
         ETH = 0.0;
@@ -136,7 +136,8 @@ class sMACD:
                         BuyPrice=CurrPrice
                         state = 1
                         #execute buy
-                        ETH = Capital/float(CurrPrice) #- (float(Capital));
+                        ETH = Capital/float(CurrPrice) 
+                        ETH = ETH*0.999 #trading fee of 0.1% = 1/1000
                         Capital = 0;
                         #print "::::::::::::::::::::::::::::::::::::BUY" + str( CurrPrice )
                         
@@ -150,7 +151,8 @@ class sMACD:
                         #set state back to for next buy
                         state=0;
                         #execute sell
-                        Capital=float(CurrPrice)*ETH# - (float(ETH));
+                        Capital=float(CurrPrice)*ETH
+                        Capital = Capital*0.999 #trading fee of 0.1%
 
                         #print "::::::::::::::::::::::::::::::::::::SELL " + str(CurrPrice)
                         #check if new best/worst trade
@@ -177,22 +179,6 @@ class sMACD:
 
         #return performance 
         return float(CurrPrice)*ETH;
-'''
-                print "ends with: ", CurrPrice*ETH;
-                print "Buy-and-Hold strategy ends with: ",CurrPrice*(10000.0/FirstPrice),"/10'000";
-                print "Profit :", (((CurrPrice*ETH)/10000.0)*100)-100, "%"
-                print "Compared against buy-and-hold :", ((CurrPrice*ETH)/(CurrPrice*(10000.0/FirstPrice)))*100, "%"
-                print "best trade :", highestGain
-                print "worst trade :", highestLost
-                summ=0
-                for l in tradesGood:
-                    summ+=l
-                #print "Avarage good trade :", summ/len(tradesGood)
-                summ=0
-                for k in tradesBad:
-                    summ+=k
-                #print "Avarage bad trade :", summ/len(tradesBad)
-                runs=False;
-'''
+
                 
 
